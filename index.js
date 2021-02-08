@@ -78,10 +78,8 @@ let unifiedServer = function(req, res) {
             'payload': helpers.parseJsonToObject(buffer)
         }
 
-        console.log(helpers.parseJsonToObject(buffer));
-
         // Route the request to the handler
-
+        
         choosen(data, function(statusCode, payload) {
             // Use the statusCode called back by the handler, or default to 200
             statusCode = typeof(statusCode) === 'number' ? statusCode : 200;
