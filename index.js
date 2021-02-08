@@ -69,6 +69,7 @@ let unifiedServer = function(req, res) {
         let choosen = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
         // Construct the data object to send to the handler
+        
         let data = {
             'trimmmedPath': trimmedPath,
             'queryStringObject': queryStringObject,
@@ -76,6 +77,8 @@ let unifiedServer = function(req, res) {
             'headers': headers,
             'payload': helpers.parseJsonToObject(buffer)
         }
+
+        console.log(helpers.parseJsonToObject(buffer));
 
         // Route the request to the handler
 
