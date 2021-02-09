@@ -69,6 +69,7 @@ let unifiedServer = function(req, res) {
         let choosen = typeof(router[trimmedPath]) !== 'undefined' ? router[trimmedPath] : handlers.notFound;
 
         // Construct the data object to send to the handler
+        
         let data = {
             'trimmmedPath': trimmedPath,
             'queryStringObject': queryStringObject,
@@ -78,7 +79,7 @@ let unifiedServer = function(req, res) {
         }
 
         // Route the request to the handler
-
+        
         choosen(data, function(statusCode, payload) {
             // Use the statusCode called back by the handler, or default to 200
             statusCode = typeof(statusCode) === 'number' ? statusCode : 200;
